@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>example for w-quill-vue</title>
+
+    <!-- quill -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.snow.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.min.js"></script>
+
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+
+    <!-- w-quill-vue -->
+    <script src="../dist/w-quill-vue.umd.js"></script>
+
+</head>
+<body style="font-family:'Microsoft JhengHei','Avenir','Helvetica'; padding:20px;">
+
+    <div id="app">
+
+        <w-quill-vue 
+            v-model="content"
+        ></w-quill-vue>
+
+    </div>
+
+    <script>
+
+        //install w-quill-vue
+        Vue.component('w-quill-vue',window['w-quill-vue'])
+
+        //initialize
+        new Vue({
+            el: '#app',
+            data: {
+                content:'abc中文123'
+            }
+        })
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<template>
+    <div class="quill-editor" style="display:inline-block;">
+
+        <quill-editor
+            :style="{'height':settings.height+'px'}"
+            :options="settings"
+            :value="value"
+            :disabled="!editable"
+            @input="function(v){$emit('input',v)}"
+        ></quill-editor>
+
+    </div>
+</template>
+
+<script>
+import VueQuillEditor from 'vue-quill-editor'
+
+let def_settings = {
+    modules: {
+        toolbar: [
+            ['bold', 'italic', 'underline', 'strike'],
+            [{ 'color': [] }, { 'background': [] }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            [{ 'indent': '-1' }, { 'indent': '+1' }],
+            [{ 'script': 'sub' }, { 'script': 'super' }],
+            [{ 'header': [1, 2, 3, false] }],
+            [{ 'align': [] }],
+            ['blockquote', 'code-block'],
+            ['link', 'image', 'video'],
+            ['clean']
+        ],
+    },
+    height: 250,
+}
+
+/**
+ * @vue-prop {String} value 輸入富文本字串
+ * @vue-prop {String} settings 輸入quill設定物件，預設值詳見原始碼
+ * @vue-prop {String} [editable=true] 輸入是否允許編輯，預設true
+ */
+export default {
+    components: {
+        'quill-editor': VueQuillEditor.quillEditor
+    },
+    props: {
+        value: {
+            type: String,
+        },
+        settings: {
+            type: Object,
+            default: function() {
+                return def_settings
+            }
+        },
+        editable: {
+            type: Boolean,
+            default: true,
+        },
+    },
+    data: function() {
+        return {
+        }
+    },
+    mounted: function() {
+    },
+    computed: {
+    },
+    methods: {
+    },
+}
+</script>
+
+<style scoped>
+::v-deep .ql-container {
+    font-size: inherit;
+    font-family: inherit;
+}
+</style>
