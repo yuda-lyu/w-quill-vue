@@ -37,7 +37,8 @@ Vue.component('w-quill-vue', WQuillVue)
 
 [Necessary] Add script for quill.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/quill/quill.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.snow.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.min.js"></script>
 ```
 [Necessary] Add script for vue.
 ```alias
@@ -45,7 +46,7 @@ Vue.component('w-quill-vue', WQuillVue)
 ```
 [Necessary] Add script for w-quill-vue.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-quill-vue@1.0.0/dist/w-quill-vue.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-quill-vue@1.0.1/dist/w-quill-vue.umd.js"></script>
 ```
 Directly use:
 ```alias
