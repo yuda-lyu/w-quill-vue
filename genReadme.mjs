@@ -24,7 +24,7 @@ async function main() {
     let rdme = getReadme()
 
     //replace
-    let c = rdme.content.replace(/(w-quill-vue@)+([0-9]{1}.[0-9]{1}.[0-9]{1})/g, 'w-quill-vue@' + pkg.version)
+    let c = rdme.content.replace(/(w-quill-vue@)+(\d+.\d+.\d+)/g, 'w-quill-vue@' + pkg.version)
 
     //write
     //console.log(c)
