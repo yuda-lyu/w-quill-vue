@@ -1,6 +1,6 @@
 {
   "name": "w-quill-vue",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A wrapper for vue-quill-editor.",
   "main": "dist/w-quill-vue.umd.js",
   "dependencies": {
@@ -39,7 +39,7 @@
     "rollup": "^1.20.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-babel-minify": "^9.0.0",
-    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-replace": "^2.2.0",
