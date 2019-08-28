@@ -1,6 +1,6 @@
 {
   "name": "w-quill-vue",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A wrapper for vue-quill-editor.",
   "main": "dist/w-quill-vue.umd.js",
   "dependencies": {
@@ -23,7 +23,7 @@
     "css-loader": "^3.2.0",
     "docdash": "^1.1.1",
     "eslint": "^6.2.2",
-    "eslint-config-standard": "^14.0.1",
+    "eslint-config-standard": "^14.1.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^3.0.0",
     "eslint-plugin-import": "^2.18.2",
