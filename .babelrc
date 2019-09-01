@@ -7,10 +7,6 @@
   ],
   "plugins": [
     "@babel/plugin-proposal-export-default-from",
-    // ["component",
-    //   {
-    //     "libraryName": "element-ui",
-    //     "styleLibraryName": "theme-chalk"
-    //   }]
+    "@babel/plugin-transform-runtime"
   ]
 }
