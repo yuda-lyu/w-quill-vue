@@ -1,6 +1,6 @@
 {
   "name": "w-quill-vue",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A wrapper for vue-quill-editor.",
   "main": "dist/w-quill-vue.umd.js",
   "dependencies": {
@@ -50,7 +50,8 @@
     "style-loader": "^1.0.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "w-package-tools": "^1.0.2"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha --require @babel/register",
