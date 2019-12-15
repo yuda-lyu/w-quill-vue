@@ -2,6 +2,7 @@
 A wrapper for vue-quill-editor.
 
 ![language](https://img.shields.io/badge/language-JavaScript-orange.svg) 
+[![language](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://github.com/vuejs/vue) 
 [![npm version](http://img.shields.io/npm/v/w-quill-vue.svg?style=flat)](https://npmjs.org/package/w-quill-vue) 
 [![Build Status](https://travis-ci.org/yuda-lyu/w-quill-vue.svg?branch=master)](https://travis-ci.org/yuda-lyu/w-quill-vue) [![license](https://img.shields.io/npm/l/w-quill-vue.svg?style=flat)](https://npmjs.org/package/w-quill-vue) 
 [![gzip file size](http://img.badgesize.io/yuda-lyu/w-quill-vue/master/dist/w-quill-vue.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-quill-vue)
@@ -46,7 +47,7 @@ Vue.component('w-quill-vue', WQuillVue)
 ```
 [Necessary] Add script for w-quill-vue.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-quill-vue@1.0.12/dist/w-quill-vue.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-quill-vue@1.0.13/dist/w-quill-vue.umd.js"></script>
 ```
 Directly use:
 ```alias
