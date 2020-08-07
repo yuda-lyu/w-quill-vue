@@ -21,7 +21,10 @@
 
         <w-quill-vue 
             v-model="content"
-            @input="aaa"
+        ></w-quill-vue>
+
+        <w-quill-vue 
+            v-model="content"
         ></w-quill-vue>
 
     </div>
@@ -36,11 +39,6 @@
             el: '#app',
             data: {
                 content:'abc中文123'
-            },
-            methods: {
-                aaa:function(v) {
-                    console.log(v)
-                }
             }
         })
 

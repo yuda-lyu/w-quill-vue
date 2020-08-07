@@ -96,6 +96,7 @@ export default {
             //console.log('methods triggerEvent')
 
             let vo = this
+            console.log(vo)
 
             //debounce
             debounce(`${vo.mmkey}|trigger`, () => {
