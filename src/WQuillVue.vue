@@ -1,19 +1,22 @@
 <template>
-    <div class="quill-editor" style="display:inline-block;">
+    <div class="quill-editor" style="display:inline-block;" :changeValue="changeValue">
 
         <quill-editor
             :style="{'height':settings.height+'px'}"
             :options="settings"
-            :value="value"
             :disabled="!editable"
-            @input="function(v){$emit('input',v)}"
+            v-model="valueTrans"
+            @input="triggerEvent"
         ></quill-editor>
 
     </div>
 </template>
 
 <script>
+import genID from 'wsemi/src/genID.mjs'
+import debounce from 'wsemi/src/debounce.mjs'
 import VueQuillEditor from 'vue-quill-editor'
+
 
 let def_settings = {
     modules: {
@@ -27,11 +30,12 @@ let def_settings = {
             [{ 'align': [] }],
             ['blockquote', 'code-block'],
             ['link', 'image', 'video'],
-            ['clean']
+            ['clean'],
         ],
     },
     height: 250,
 }
+
 
 /**
  * @vue-prop {String} value 輸入富文本字串
@@ -59,13 +63,50 @@ export default {
     },
     data: function() {
         return {
+            mmkey: null,
+            valueTrans: '',
         }
     },
     mounted: function() {
+        //console.log('mounted')
+
+        let vo = this
+
+        //mmkey
+        vo.mmkey = genID()
+
     },
     computed: {
+
+        changeValue: function() {
+            //console.log('computed changeValue')
+
+            let vo = this
+
+            //save
+            vo.valueTrans = vo.value
+
+            return ''
+        },
+
     },
     methods: {
+
+        triggerEvent: function() {
+            //console.log('methods triggerEvent')
+
+            let vo = this
+
+            //debounce
+            debounce(`${vo.mmkey}|trigger`, () => {
+
+                //refresh
+                vo.$emit('input', vo.valueTrans)
+
+            })
+
+        },
+
     },
 }
 </script>
