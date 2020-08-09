@@ -19,22 +19,17 @@
 
     <div id="app">
 
-        <w-quill-vue 
-            v-model="content"
-        ></w-quill-vue>
-        
-<!-- 
-        <w-quill-vue 
+        <w-quill-vue
+            style="vertical-align:top;"
+            :height="height"
             v-model="content"
         ></w-quill-vue>
 
-        <w-quill-vue 
-            v-model="content2"
+        <w-quill-vue
+            style="vertical-align:top;"
+            :height="200"
+            v-model="content"
         ></w-quill-vue>
-
-        <w-quill-vue 
-            v-model="content2"
-        ></w-quill-vue> -->
 
     </div>
 
@@ -47,9 +42,15 @@
         new Vue({
             el: '#app',
             data: {
-                content:'abc中文123',
-                // content2:'中文123abc',
-            }
+                content: 'abc中文123',
+                height: 250,
+            },
+            // mounted: function() {
+            //     let vo=this
+            //     setInterval(function(){
+            //         vo.height+=10
+            //     },1000)
+            // },
         })
 
     </script>

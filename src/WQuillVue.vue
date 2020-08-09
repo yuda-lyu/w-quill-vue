@@ -3,7 +3,7 @@
 
         <quill-editor
             ref="edr"
-            :style="{'height':settings.height+'px'}"
+            :style="`height:${height}px;`"
             :options="settings"
             :disabled="!editable"
             v-model="valueTrans"
@@ -15,7 +15,6 @@
 
 <script>
 import evem from 'wsemi/src/evem.mjs'
-import o2j from 'wsemi/src/o2j.mjs'
 import domGetPointFromEvent from 'wsemi/src/domGetPointFromEvent.mjs'
 import domIsClientXYIn from 'wsemi/src/domIsClientXYIn.mjs'
 import VueQuillEditor from 'vue-quill-editor'
@@ -39,7 +38,6 @@ let def_settings = {
             // ['clean'],
         ],
     },
-    height: 250,
 }
 
 
@@ -61,6 +59,10 @@ export default {
             default: function() {
                 return def_settings
             }
+        },
+        height: {
+            type: Number,
+            default: 250,
         },
         editable: {
             type: Boolean,
