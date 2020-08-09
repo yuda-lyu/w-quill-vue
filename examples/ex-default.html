@@ -15,21 +15,33 @@
     <script src="../dist/w-quill-vue.umd.js"></script>
 
 </head>
-<body style="font-family:'Microsoft JhengHei','Avenir','Helvetica'; padding:20px;">
+<body style="font-family:'Microsoft JhengHei','Avenir','Helvetica'; margin:0px; padding:0px;">
 
     <div id="app">
 
-        <w-quill-vue
-            style="vertical-align:top;"
-            :height="height"
-            v-model="content"
-        ></w-quill-vue>
+        <div style="margin:20px;">
+            <div>1. bind height</div>
+            <w-quill-vue
+                :height="height"
+                v-model="content"
+            ></w-quill-vue>
+        </div>
 
-        <w-quill-vue
-            style="vertical-align:top;"
-            :height="200"
-            v-model="content"
-        ></w-quill-vue>
+        <div style="margin:20px;">
+            <div>2. sync content</div>
+            <w-quill-vue
+                :height="200"
+                v-model="content"
+            ></w-quill-vue>
+        </div>
+
+        <div style="margin:20px;">
+            <div>3. settings</div>
+            <w-quill-vue
+                :settings="settings"
+                v-model="content"
+            ></w-quill-vue>
+        </div>
 
     </div>
 
@@ -44,6 +56,22 @@
             data: {
                 content: 'abc中文123',
                 height: 250,
+                settings: {
+                    modules: {
+                        toolbar: [
+                            ['bold', 'italic', 'underline', 'strike'],
+                            // [{ 'color': [] }, { 'background': [] }],
+                            // // [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                            // [{ 'indent': '-1' }, { 'indent': '+1' }],
+                            // [{ 'script': 'sub' }, { 'script': 'super' }],
+                            // // [{ 'header': [1, 2, 3, false] }],
+                            // [{ 'align': [] }],
+                            // // ['blockquote', 'code-block'],
+                            // // ['link', 'image', 'video'],
+                            // // ['clean'],
+                        ],
+                    },
+                },
             },
             // mounted: function() {
             //     let vo=this

@@ -4,7 +4,7 @@
         <quill-editor
             ref="edr"
             :style="`height:${height}px;`"
-            :options="settings"
+            :options="useSettings"
             :disabled="!editable"
             v-model="valueTrans"
             @blur="onLostFocus"
@@ -26,25 +26,27 @@ let ev = evem()
 let def_settings = {
     modules: {
         toolbar: [
+            //{ size: ['small', false, 'large', 'huge'] }, //同步文本會出現額外換行問題
             ['bold', 'italic', 'underline', 'strike'],
             [{ 'color': [] }, { 'background': [] }],
-            // [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            // [{ 'list': 'ordered' }, { 'list': 'bullet' }], //同步文本會出現額外換行問題
             [{ 'indent': '-1' }, { 'indent': '+1' }],
             [{ 'script': 'sub' }, { 'script': 'super' }],
-            // [{ 'header': [1, 2, 3, false] }],
+            // [{ 'header': [1, 2, 3, false] }], //同步文本會出現額外換行問題
             [{ 'align': [] }],
-            // ['blockquote', 'code-block'],
-            // ['link', 'image', 'video'],
-            // ['clean'],
+            // ['blockquote', 'code-block'], //同步文本會出現額外換行問題
+            // ['link', 'image', 'video'], //同步文本會出現額外換行問題
+            // ['clean'], //暫不使用
         ],
     },
 }
 
 
 /**
- * @vue-prop {String} value 輸入富文本字串
- * @vue-prop {String} settings 輸入quill設定物件，預設值詳見原始碼
- * @vue-prop {String} [editable=true] 輸入是否允許編輯，預設true
+ * @vue-prop {String} [value=''] 輸入富文本字串，預設為''
+ * @vue-prop {Object} [settings={}] 輸入quill設定物件，預設值詳見原始碼
+ * @vue-prop {Number} [height=250] 輸入高度數字，單位為px，預設為250
+ * @vue-prop {Boolean} [editable=true] 輸入是否允許編輯，預設true
  */
 export default {
     components: {
@@ -53,12 +55,11 @@ export default {
     props: {
         value: {
             type: String,
+            default: '',
         },
         settings: {
             type: Object,
-            default: function() {
-                return def_settings
-            }
+            default: () => {},
         },
         height: {
             type: Number,
@@ -122,6 +123,17 @@ export default {
 
     },
     computed: {
+
+        useSettings: function() {
+            //console.log('computed useSettings')
+
+            let vo = this
+
+            return {
+                ...def_settings,
+                ...vo.settings,
+            }
+        },
 
         changeValue: function() {
             //console.log('computed changeValue')

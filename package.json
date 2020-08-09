@@ -1,6 +1,6 @@
 {
   "name": "w-quill-vue",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "A wrapper for vue-quill-editor.",
   "main": "dist/w-quill-vue.umd.js",
   "dependencies": {
