@@ -47,7 +47,7 @@ Vue.component('w-quill-vue', WQuillVue)
 ```
 [Necessary] Add script for w-quill-vue.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-quill-vue@1.0.20/dist/w-quill-vue.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-quill-vue@1.0.21/dist/w-quill-vue.umd.js"></script>
 ```
 Directly use:
 ```alias

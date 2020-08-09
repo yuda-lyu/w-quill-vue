@@ -1,21 +1,27 @@
 <template>
-    <div class="quill-editor" style="display:inline-block;" :changeValue="changeValue">
+    <div style="display:inline-block;" :changeValue="changeValue">
 
         <quill-editor
+            ref="edr"
             :style="{'height':settings.height+'px'}"
             :options="settings"
             :disabled="!editable"
             v-model="valueTrans"
-            @input="triggerEvent"
+            @blur="onLostFocus"
         ></quill-editor>
 
     </div>
 </template>
 
 <script>
-import genID from 'wsemi/src/genID.mjs'
-import debounce from 'wsemi/src/debounce.mjs'
+import evem from 'wsemi/src/evem.mjs'
+import o2j from 'wsemi/src/o2j.mjs'
+import domGetPointFromEvent from 'wsemi/src/domGetPointFromEvent.mjs'
+import domIsClientXYIn from 'wsemi/src/domIsClientXYIn.mjs'
 import VueQuillEditor from 'vue-quill-editor'
+
+
+let ev = evem()
 
 
 let def_settings = {
@@ -23,14 +29,14 @@ let def_settings = {
         toolbar: [
             ['bold', 'italic', 'underline', 'strike'],
             [{ 'color': [] }, { 'background': [] }],
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            // [{ 'list': 'ordered' }, { 'list': 'bullet' }],
             [{ 'indent': '-1' }, { 'indent': '+1' }],
             [{ 'script': 'sub' }, { 'script': 'super' }],
-            [{ 'header': [1, 2, 3, false] }],
+            // [{ 'header': [1, 2, 3, false] }],
             [{ 'align': [] }],
-            ['blockquote', 'code-block'],
-            ['link', 'image', 'video'],
-            ['clean'],
+            // ['blockquote', 'code-block'],
+            // ['link', 'image', 'video'],
+            // ['clean'],
         ],
     },
     height: 250,
@@ -44,7 +50,7 @@ let def_settings = {
  */
 export default {
     components: {
-        'quill-editor': VueQuillEditor.quillEditor
+        'quill-editor': VueQuillEditor.quillEditor,
     },
     props: {
         value: {
@@ -63,7 +69,8 @@ export default {
     },
     data: function() {
         return {
-            mmkey: null,
+            fMousemove: null,
+            bInElement: false,
             valueTrans: '',
         }
     },
@@ -72,8 +79,44 @@ export default {
 
         let vo = this
 
-        //mmkey
-        vo.mmkey = genID()
+        //fMousemove
+        vo.fMousemove = (e) => {
+            //console.log('fMousemove', e)
+
+            //domGetPointFromEvent
+            let p = domGetPointFromEvent(e)
+
+            //domIsClientXYIn
+            let b = domIsClientXYIn(p.clientX, p.clientY, vo.$el)
+
+            //save bInElement
+            vo.bInElement = b
+
+        }
+
+        //addEventListener
+        window.addEventListener('mousemove', vo.fMousemove)
+
+        //ev
+        ev.on('disable', () => {
+            if (vo.getEditor()) {
+                vo.getEditor().enable(false)
+            }
+        })
+        ev.on('enable', () => {
+            if (vo.getEditor()) {
+                vo.getEditor().enable(true)
+            }
+        })
+
+    },
+    beforeDestroy: function() {
+        //console.log('beforeDestroy')
+
+        let vo = this
+
+        //removeEventListener
+        window.removeEventListener('mousedown', vo.fMousemove)
 
     },
     computed: {
@@ -86,25 +129,60 @@ export default {
             //save
             vo.valueTrans = vo.value
 
+            //quill有問題, 解析例如有h1文本時(<p>abc中文123</p><p>a</p><p>b</p><h1>c</h1><p>d</p>)，會多解析出換行符號, 可只開放純文本編輯, 待後續quill修復
+            // setTimeout(() => {
+            //     if (vo.getEditor()) {
+            //         console.log('vo.value', vo.value)
+            //         console.log('vo.getEditor().getContents()', o2j(vo.getEditor().getContents()))
+            //         console.log('')
+            //     }
+            // }, 100)
+
             return ''
         },
 
     },
     methods: {
 
-        triggerEvent: function() {
-            //console.log('methods triggerEvent')
+        getEditor: function() {
+            //console.log('methods getEditor')
 
             let vo = this
-            console.log(vo)
 
-            //debounce
-            debounce(`${vo.mmkey}|trigger`, () => {
+            if (vo.$refs.edr) {
+                return vo.$refs.edr.quill
+            }
+            return null
+        },
 
-                //refresh
-                vo.$emit('input', vo.valueTrans)
+        onLostFocus: function() {
+            //console.log('methods onLostFocus')
 
-            })
+            let vo = this
+
+            //check, 還在組件內不算不觸發事件
+            if (vo.bInElement) {
+                return
+            }
+
+            //check, 同值就不觸發事件
+            if (vo.valueTrans === vo.value) {
+                return
+            }
+
+            //disable
+            ev.emit('disable')
+
+            //$emit
+            vo.$emit('input', vo.valueTrans)
+
+            //setTimeout
+            setTimeout(() => {
+
+                //enable
+                ev.emit('enable')
+
+            }, 50)
 
         },
 
