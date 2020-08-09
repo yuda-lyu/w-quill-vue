@@ -108,7 +108,7 @@ export default {
         })
         ev.on('enable', () => {
             if (vo.getEditor()) {
-                vo.getEditor().enable(true)
+                vo.getEditor().enable(vo.editable) //要還原成原本的editable
             }
         })
 

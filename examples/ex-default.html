@@ -28,6 +28,14 @@
         </div>
 
         <div style="margin:20px;">
+            <div>1. bind height</div>
+            <w-quill-vue
+                :editable="false"
+                v-model="content"
+            ></w-quill-vue>
+        </div>
+
+        <div style="margin:20px;">
             <div>2. sync content</div>
             <w-quill-vue
                 :height="200"
