@@ -18,7 +18,7 @@ To view some examples for more understanding, visit examples:
 
 ## Installation
 ### Using npm(ES6 module):
-> **Note:** w-quill-vue depends on `quill`, `vue-quill-editor` and `vue`.
+> **Note:** w-quill-vue is mainly dependent on `quill`, `vue-quill-editor` and `vue`.
 ```alias
 npm i w-quill-vue
 ```
@@ -43,7 +43,7 @@ Vue.component('w-quill-vue', WQuillVue)
 ```
 [Necessary] Add script for vue.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.min.js"></script>
 ```
 [Necessary] Add script for w-quill-vue.
 ```alias
