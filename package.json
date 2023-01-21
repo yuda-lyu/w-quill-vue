@@ -1,15 +1,14 @@
 {
   "name": "w-quill-vue",
-  "version": "2.0.2",
-  "description": "A wrapper for vue-quill-editor.",
+  "version": "2.0.3",
   "main": "dist/w-quill-vue.umd.js",
   "dependencies": {
     "quill": "^1.3.7",
     "vue-quill-editor": "^3.0.6",
-    "wsemi": "^1.6.54"
+    "wsemi": "^1.6.87"
   },
   "devDependencies": {
-    "w-package-tools": "^1.0.65"
+    "w-package-tools": "^1.0.66"
   },
   "scripts": {
     "test": "mocha --parallel --timeout 60000 --experimental-modules --es-module-specifier-resolution=node",
@@ -19,17 +18,13 @@
     "type": "git",
     "url": "git+https://github.com/yuda-lyu/w-quill-vue.git"
   },
-  "author": "yuda-lyu(semisphere)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yuda-lyu/w-quill-vue/issues"
-  },
-  "homepage": "https://github.com/yuda-lyu/w-quill-vue#readme",
   "keywords": [
     "package",
     "tool",
     "quill",
     "vue",
     "wrapper"
-  ]
+  ],
+  "author": "yuda-lyu(semisphere)",
+  "license": "MIT"
 }
