@@ -6,6 +6,7 @@ A wrapper for vue-quill-editor.
 [![npm version](http://img.shields.io/npm/v/w-quill-vue.svg?style=flat)](https://npmjs.org/package/w-quill-vue) 
 [![gzip file size](http://img.badgesize.io/yuda-lyu/w-quill-vue/master/dist/w-quill-vue.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-quill-vue)
 [![npm download](https://img.shields.io/npm/dt/w-quill-vue.svg)](https://npmjs.org/package/w-quill-vue) 
+[![npm download](https://img.shields.io/npm/dm/w-quill-vue.svg)](https://npmjs.org/package/w-quill-vue) 
 [![jsdelivr download](https://img.shields.io/jsdelivr/npm/hm/w-quill-vue.svg)](https://www.jsdelivr.com/package/npm/w-quill-vue)
 
 ## Documentation
@@ -46,7 +47,7 @@ Vue.component('w-quill-vue', WQuillVue)
 ```
 [Necessary] Add script for w-quill-vue.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-quill-vue@2.0.4/dist/w-quill-vue.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-quill-vue@2.0.5/dist/w-quill-vue.umd.js"></script>
 ```
 Directly use:
 ```alias
