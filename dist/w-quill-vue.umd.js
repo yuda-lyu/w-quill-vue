@@ -1,5 +1,5 @@
 /*!
- * w-quill-vue v2.0.5
+ * w-quill-vue v2.0.6
  * (c) 2018-2021 yuda-lyu(semisphere)
  * Released under the MIT License.
  */
