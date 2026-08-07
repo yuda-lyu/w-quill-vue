@@ -1,12 +1,11 @@
 {
   "name": "w-quill-vue",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "main": "dist/w-quill-vue.umd.js",
   "dependencies": {
     "quill": "^1.3.7",
     "vue-quill-editor": "^3.0.6",
-    "lodash-es": "^4.18.1",
-    "wsemi": "^1.8.67"
+    "wsemi": "^1.8.68"
   },
   "devDependencies": {
     "w-package-tools": "^1.1.12"
