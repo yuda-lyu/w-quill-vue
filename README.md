@@ -47,7 +47,7 @@ Add script for vue.
 
 Add script for w-quill-vue.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-quill-vue@2.0.13/dist/w-quill-vue.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-quill-vue@2.0.14/dist/w-quill-vue.umd.js"></script>
 ```
 
 Directly use:
