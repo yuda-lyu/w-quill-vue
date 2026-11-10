@@ -1,13 +1,13 @@
 {
   "name": "w-quill-vue",
-  "version": "2.0.38",
+  "version": "2.0.39",
   "main": "dist/w-quill-vue.umd.js",
   "dependencies": {
     "quill": "^2.0.3",
-    "wsemi": "^1.9.54"
+    "wsemi": "^1.9.55"
   },
   "devDependencies": {
-    "w-package-tools": "^1.1.24"
+    "w-package-tools": "^1.1.25"
   },
   "scripts": {
     "test": "mocha --parallel \"test/*.test.mjs\" --timeout 180000",
