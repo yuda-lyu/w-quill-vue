@@ -1,10 +1,10 @@
 {
   "name": "w-quill-vue",
-  "version": "2.0.42",
+  "version": "2.0.43",
   "main": "dist/w-quill-vue.umd.js",
   "dependencies": {
     "quill": "^2.0.3",
-    "wsemi": "^1.9.58"
+    "wsemi": "^1.9.59"
   },
   "devDependencies": {
     "w-package-tools": "^1.1.28"
